@@ -1,7 +1,14 @@
 import React from 'react';
+import User from './User/User';
+import Crypto from './Crypto/Crypto';
 
 const App = () => {
-    return <div>This is App Component</div>;
+    return (
+        <div>
+            <User />
+            <Crypto />
+        </div>
+    );
 };
 
 export default App;
