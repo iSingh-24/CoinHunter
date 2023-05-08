@@ -27,3 +27,5 @@ const CreateCrypto = () => {
         </div>
     );
 };
+
+export default CreateCrypto;

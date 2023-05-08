@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createUser } from './utils';
 
 const CreateUser = () => {
     const [firstName, setFirstName] = useState('');
@@ -10,12 +11,14 @@ const CreateUser = () => {
     };
 
     const onLastNameChange = ({ value }) => {
-        console.log('here is last name value');
+        console.log('here is last name value', value);
         setLastName(value);
     };
 
-    const onSubmitUser = (event) => {
+    const onSubmitUser = async (event) => {
         event.preventDefault();
+        const createdUser = await createUser(firstName, lastName);
+        console.log(createdUser, 'here is created user');
         console.log('submit handler is being hit');
     };
     return (

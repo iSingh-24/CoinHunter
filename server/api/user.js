@@ -8,4 +8,12 @@ router.get('/', (req, res) => {
     }
 });
 
+router.post('/', (req, res) => {
+    try {
+        res.send('this route is properly being hit');
+    } catch (err) {
+        console.log(err);
+    }
+});
+
 module.exports = router;
