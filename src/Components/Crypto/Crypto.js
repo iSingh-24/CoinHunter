@@ -1,7 +1,12 @@
 import React from 'react';
+import CreateCrypto from './CreateCrypto';
 
 const Crypto = () => {
-    return <div>Crypto Component Here</div>;
+    return (
+        <div>
+            <CreateCrypto />
+        </div>
+    );
 };
 
 export default Crypto;
