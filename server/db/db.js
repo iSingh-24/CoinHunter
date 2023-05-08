@@ -5,7 +5,7 @@ const config = {
 };
 
 const db = new Sequelize(
-    process.env.DATABASE_URL || 'postgres://localhost/studentenrollment',
+    process.env.DATABASE_URL || 'postgres://localhost/usercrypto',
     config
 );
 
