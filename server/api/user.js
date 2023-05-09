@@ -1,9 +1,11 @@
 const router = require('express').Router();
-const { createUser } = require('./utils');
+const { createUser, getUsers } = require('./utils');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        res.send('route in user js');
+        const allUsers = await getUsers();
+
+        res.send(allUsers);
     } catch (err) {
         console.log(err);
     }

@@ -1,9 +1,11 @@
 const router = require('express').Router();
-const { createCrypto } = require('./utils');
+const { createCrypto, getCrypto } = require('./utils');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        res.send('crypto route is hit');
+        const allCrypto = await getCrypto();
+
+        res.send(allCrypto);
     } catch (err) {
         console.log(err);
     }

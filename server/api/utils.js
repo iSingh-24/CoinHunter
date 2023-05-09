@@ -12,4 +12,17 @@ const createCrypto = async (crypto) => {
     const createdCrypto = await Crypto.create({ name });
     return createdCrypto;
 };
-module.exports = { createUser, createCrypto };
+
+const getCrypto = async () => {
+    const allCrypto = await Crypto.findAll();
+
+    return allCrypto;
+};
+
+const getUsers = async () => {
+    const allUsers = await User.findAll();
+
+    return allUsers;
+};
+
+module.exports = { createUser, createCrypto, getCrypto, getUsers };
