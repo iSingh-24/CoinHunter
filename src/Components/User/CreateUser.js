@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createUser } from './utils';
+import { createUser } from '../../utils';
 
 const CreateUser = () => {
     const [firstName, setFirstName] = useState('');

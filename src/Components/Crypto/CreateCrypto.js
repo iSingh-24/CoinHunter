@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createCrypto } from '../../utils';
 
 const CreateCrypto = () => {
     const [name, setName] = useState('');
@@ -8,9 +9,11 @@ const CreateCrypto = () => {
         setName(value);
     };
 
-    const onCryptoSubmit = (event) => {
+    const onCryptoSubmit = async (event) => {
         event.preventDefault();
-        console.log('Crypto submit getting hit');
+
+        const createdCrypto = await createCrypto(name);
+        console.log(createdCrypto);
     };
 
     return (
