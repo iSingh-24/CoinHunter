@@ -1,4 +1,3 @@
-const axios = require('axios');
 const { User } = require('../db/Models/relationships');
 const { Crypto } = require('../db/Models/relationships');
 
