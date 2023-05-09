@@ -25,4 +25,12 @@ const getUsers = async () => {
     return allUsers;
 };
 
+const updateUser = (userId) => {
+    //get the id or name of the user you want to update
+};
+
+const updateCrypto = (cryptoId) => {
+    //get the id or name of the crypto you want to update
+};
+
 module.exports = { createUser, createCrypto, getCrypto, getUsers };

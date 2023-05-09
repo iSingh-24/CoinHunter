@@ -11,6 +11,15 @@ router.get('/', async (req, res) => {
     }
 });
 
+//set up a user route for a singular user
+
+router.get('/:id', async (req, res) => {
+    const id = req.params;
+    console.log(id, 'here is id');
+
+    res.send('single user route was hit');
+});
+
 router.post('/', async (req, res) => {
     try {
         const createdUser = await createUser(req.body);
