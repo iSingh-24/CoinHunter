@@ -5,7 +5,6 @@ const CreateCrypto = () => {
     const [name, setName] = useState('');
 
     const onCryptoNameHandler = ({ value }) => {
-        console.log(value);
         setName(value);
     };
 

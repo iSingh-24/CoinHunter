@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Crypto = require('../db/Models/Crypto');
+const { createCrypto } = require('./utils');
 
 router.get('/', (req, res) => {
     try {
@@ -11,8 +11,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const { name } = req.body;
-        const createdCrypto = await Crypto.create({ name });
+        const createdCrypto = await createCrypto(req.body);
         res.send(createdCrypto);
     } catch (err) {
         console.log(err);
