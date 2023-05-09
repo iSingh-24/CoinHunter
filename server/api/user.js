@@ -1,5 +1,10 @@
 const router = require('express').Router();
-const { createUser, getUsers } = require('./utils');
+const {
+    createUser,
+    getUsers,
+    getSingleUser,
+    updateUserName,
+} = require('./utils');
 
 router.get('/', async (req, res) => {
     try {
@@ -14,10 +19,16 @@ router.get('/', async (req, res) => {
 //set up a user route for a singular user
 
 router.get('/:id', async (req, res) => {
-    const id = req.params;
-    console.log(id, 'here is id');
-
-    res.send('single user route was hit');
+    try {
+        const { id } = req.params;
+        const singleUser = await getSingleUser(id);
+        singleUser
+            ? res.send(singleUser)
+            : res.status(404).send('User Not Found');
+    } catch (err) {
+        console.log(err);
+        res.status(404).send('User not Found');
+    }
 });
 
 router.post('/', async (req, res) => {
@@ -26,6 +37,20 @@ router.post('/', async (req, res) => {
         res.send(createdUser);
     } catch (err) {
         console.log('this is the error', err);
+    }
+});
+
+router.put('/:id', async (req, res) => {
+    try {
+        const { firstName, lastName } = req.body;
+        const { id } = req.params;
+        const updatedUser = await updateUserName(id, firstName, lastName);
+
+        updatedUser
+            ? res.send(updatedUser)
+            : res.status(404).send("user doesn't exist");
+    } catch (err) {
+        console.log(err, 'this is error');
     }
 });
 
